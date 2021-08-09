@@ -1,32 +1,38 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
 const LoginPage = () => import('@/pages/login/index.vue')
+const Mainpage = () => import('@/pages/main/index.vue')
 const NoAuth = () => import('@/pages/noAuth/index.vue')
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/login'
+    redirect: '/login',
   },
   {
     path: '/login',
     name: 'LoginPage',
-    component: LoginPage
+    component: LoginPage,
+  },
+  {
+    path: '/main',
+    name: 'Mainpage',
+    component: Mainpage,
   },
   {
     path: '/noAuth',
     name: 'noAuth',
-    component: NoAuth
-  }
+    component: NoAuth,
+  },
 ]
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
+  routes,
 })
 
 router.beforeEach(async (to, from, next) => {
-  if (to.matched.some(record => record.meta.requireAuth)) {
+  if (to.matched.some((record) => record.meta.requireAuth)) {
     if (true) next()
     else next({ name: 'noAuth' })
   } else next()

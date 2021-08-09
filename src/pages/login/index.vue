@@ -1,36 +1,48 @@
 <template>
   <div class="login-page">
-    <el-form
-      :model="loginForm"
-      ref="ruleForm"
-      label-width="100px"
-      class="demo-ruleForm"
-    >
-      <el-form-item label="账号" prop="account">
-        <el-input v-model="loginForm.account"></el-input>
-      </el-form-item>
-      <el-form-item label="密码" prop="password">
-        <el-input v-model="loginForm.password"></el-input>
-      </el-form-item>
-    </el-form>
-    <el-button type="primary" @click="toLogin">登录</el-button>
-    <el-button @click="toRegister">去注册</el-button>
+    <div class="login-form">
+      <el-input v-model="loginForm.account" placeholder="请输入账号"></el-input>
+      <el-input
+        v-model="loginForm.password"
+        type="password"
+        placeholder="请输入密码"
+      ></el-input>
+      <el-button class="login-button" type="primary" @click="toLogin">
+        登录
+      </el-button>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { ref, defineComponent } from 'vue'
-export default defineComponent({
+import { reactive } from 'vue'
+import { ElMessage as $message } from 'element-plus'
+import { useRouter } from 'vue-router'
+export default {
   name: 'Login',
   props: {},
-  setup: () => {
-    const loginForm = ref({
+  setup: (props: any) => {
+    let router = useRouter()
+    const loginForm = reactive({
       account: '',
       password: '',
     })
-    return { loginForm }
+
+    const toLogin = ($event: any) => {
+      if (loginForm.account && loginForm.password) {
+        $message({ type: 'success', message: '登录成功' })
+        router.push({ name: 'Mainpage' })
+      } else {
+        $message({ type: 'warning', message: '账号密码不能为空' })
+      }
+    }
+    const toRegister = ($event: any) => {
+      console.log(loginForm)
+    }
+
+    return { loginForm, toLogin, toRegister }
   },
-})
+}
 </script>
 
 <style lang="scss" scoped>
@@ -39,5 +51,28 @@ export default defineComponent({
   background-image: url('@/assets/images/login_bg.png');
   background-size: cover;
   background-position: center;
+
+  .login-form {
+    position: absolute;
+    right: 200px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 400px;
+    padding: 40px 20px;
+    background: rgb(110 71 54 / 37%);
+    border-radius: 4px;
+  }
+
+  .el-input {
+    margin-bottom: 40px;
+    :deep(.el-input__inner) {
+      background: transparent;
+      color: #fff;
+    }
+  }
+
+  .login-button {
+    width: 100%;
+  }
 }
 </style>
