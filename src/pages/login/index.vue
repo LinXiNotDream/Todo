@@ -2,14 +2,8 @@
   <div class="login-page">
     <div class="login-form">
       <el-input v-model="loginForm.account" placeholder="请输入账号"></el-input>
-      <el-input
-        v-model="loginForm.password"
-        type="password"
-        placeholder="请输入密码"
-      ></el-input>
-      <el-button class="login-button" type="primary" @click="toLogin">
-        登录
-      </el-button>
+      <el-input v-model="loginForm.password" type="password" placeholder="请输入密码"></el-input>
+      <el-button class="login-button" type="primary" @click="toLogin">登录</el-button>
     </div>
   </div>
 </template>
@@ -31,7 +25,7 @@ export default {
     const toLogin = ($event: any) => {
       if (loginForm.account && loginForm.password) {
         $message({ type: 'success', message: '登录成功' })
-        router.push({ name: 'Mainpage' })
+        router.push({ name: 'MainPage' })
       } else {
         $message({ type: 'warning', message: '账号密码不能为空' })
       }
@@ -51,7 +45,6 @@ export default {
   background-image: url('@/assets/images/login_bg.png');
   background-size: cover;
   background-position: center;
-
   .login-form {
     position: absolute;
     right: 200px;
@@ -62,7 +55,6 @@ export default {
     background: rgb(110 71 54 / 37%);
     border-radius: 4px;
   }
-
   .el-input {
     margin-bottom: 40px;
     :deep(.el-input__inner) {
@@ -70,7 +62,6 @@ export default {
       color: #fff;
     }
   }
-
   .login-button {
     width: 100%;
   }

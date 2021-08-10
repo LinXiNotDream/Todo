@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
 const LoginPage = () => import('@/pages/login/index.vue')
-const Mainpage = () => import('@/pages/main/index.vue')
+const MainPage = () => import('@/pages/main/index.vue')
 const NoAuth = () => import('@/pages/noAuth/index.vue')
 
 const routes: Array<RouteRecordRaw> = [
@@ -16,8 +16,8 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/main',
-    name: 'Mainpage',
-    component: Mainpage,
+    name: 'MainPage',
+    component: MainPage,
   },
   {
     path: '/noAuth',
