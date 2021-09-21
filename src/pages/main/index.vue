@@ -60,7 +60,7 @@ export default {
       { value: 'star', name: '重要', icon: 'el-icon-star-off' },
       { value: 'task', name: '任务', icon: 'el-icon-s-home' },
     ]
-    const menuNumMap = reactive({
+    const menuNumMap: any = reactive({
       star: 10,
       task: 0,
     })
@@ -70,7 +70,7 @@ export default {
       activeMenu.value = item.value
     }
 
-    const taskMenuList = reactive([
+    const taskMenuList: any[] = reactive([
       { value: 1, name: 'vadbds', tasks: [1, 2] },
       { value: 2, name: 'vad版本发布bds', tasks: [1, 2] },
     ])

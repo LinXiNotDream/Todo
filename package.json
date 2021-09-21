@@ -2,7 +2,7 @@
   "name": "todo",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview"
   },
@@ -19,6 +19,6 @@
     "sass": "^1.37.5",
     "typescript": "^4.3.2",
     "vite": "^2.4.4",
-    "vue-tsc": "^0.2.2"
+    "vue-tsc": "^0.2.3"
   }
 }
