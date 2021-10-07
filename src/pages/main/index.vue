@@ -38,7 +38,7 @@
           </span>
         </div>
       </div>
-      <div class="create-area">
+      <div class="create-area menu-item">
         <i class="el-icon-plus"></i>
         <span>新建列表</span>
       </div>
@@ -56,16 +56,18 @@ export default {
       name: 'Zoom',
       avatar,
     })
+
     const staticMenu = [
       { value: 'star', name: '重要', icon: 'el-icon-star-off' },
       { value: 'task', name: '任务', icon: 'el-icon-s-home' },
     ]
+
     const menuNumMap: any = reactive({
       star: 10,
       task: 0,
     })
-    const activeMenu = ref('star')
 
+    const activeMenu = ref('star')
     const toActive = function (item: any) {
       activeMenu.value = item.value
     }
@@ -100,7 +102,6 @@ export default {
       width: 50px;
       height: 50px;
       font-size: 0;
-      border-radius: 50px;
       margin-right: 20px;
     }
   }
@@ -138,6 +139,8 @@ export default {
       color: rgb(126, 126, 126);
       font-size: 12px;
     }
+  }
+  .create-area {
   }
   .right-content {
     width: calc(100% - 500px);
