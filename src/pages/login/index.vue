@@ -2,8 +2,15 @@
   <div class="login-page">
     <div class="login-form">
       <el-input v-model="loginForm.account" placeholder="请输入账号"></el-input>
-      <el-input v-model="loginForm.password" type="password" placeholder="请输入密码"></el-input>
-      <el-button class="login-button" type="primary" @click="toLogin">登录</el-button>
+      <el-input
+        v-model="loginForm.password"
+        type="password"
+        placeholder="请输入密码"
+      ></el-input>
+      <el-button class="login-button" type="primary" @click="toLogin">
+        登录
+      </el-button>
+      <span>test</span>
     </div>
   </div>
 </template>
